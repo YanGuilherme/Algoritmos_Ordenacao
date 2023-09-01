@@ -33,7 +33,7 @@ int main(){
         entrada.escolha_tamanho(opcao);
         entrada.escolha_entrada();
         entrada.make_vector();
-        algoritmo->processar(&entrada); //Método virtual processar chama todos os metodos necessários 
+        algoritmo->processar(&entrada); //Método virtual "processar" chama todos os metodos necessários 
                                         //  para entrada, ordenação e saída, além de salvar tudo em arquivos.
         entrada.destroy_vector();
         cout << "Pronto!" << endl;
