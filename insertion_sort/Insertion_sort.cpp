@@ -55,16 +55,12 @@ void InsertionSort::ordenar(DadosEntrada *entrada)
 void InsertionSort::salvar_entrada(DadosEntrada entrada){ 
     char entrada_arquivo[200];
     FILE* arquivo = NULL;
-
-        if(entrada.tipo_entrada == CRESCENTE){
-
+    if(entrada.tipo_entrada == CRESCENTE){
         string nome_pasta = "insertion_sort/entradas/entrada_crescente/";
         const char* path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); //confere se tem a pasta criada e cria se nao tiver
         string numStr = to_string(entrada.tamanho);
         nome_pasta += (numStr + ".txt");
-        cout << numStr << endl;
-        cout << "----------------------" << endl;
         const char* caminho_arquivo = nome_pasta.c_str(); //transformando o caminho do arquivo para char* para ser utilizado na fopen()
         
         arquivo = fopen(caminho_arquivo, "w"); 
@@ -177,7 +173,7 @@ char entrada_arquivo[200];
 void InsertionSort::salvar_tempos(DadosEntrada entrada){
     FILE *arq;
     if(entrada.tipo_entrada == CRESCENTE){
-        char tempos_execucao[30];
+        char tempos_execucao[40];
         arq = fopen("insertion_sort/entradas/entrada_crescente/tempo_gasto.txt", "a");
         sprintf(tempos_execucao, "Tempo: %lf Tamanho: %d\n", duracao, entrada.tamanho);
         fprintf(arq, tempos_execucao);

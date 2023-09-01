@@ -75,7 +75,6 @@ void DadosEntrada::escolha_entrada(){
 
 void DadosEntrada::escolha_tamanho(int opcao){
     this->tamanho = calcularPotencia(10,opcao);
-    // system("clear");
 
 
 

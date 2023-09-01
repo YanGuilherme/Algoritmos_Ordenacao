@@ -16,6 +16,7 @@ Algoritmo* selecionarAlgoritimo(){
         cout << "Comando invalido" << endl;
         break;
     }
+    return nullptr;
 } 
 
 using namespace std;
@@ -33,9 +34,10 @@ int main(){
         entrada.escolha_entrada();
         entrada.make_vector();
         algoritmo->processar(&entrada);
+
     } else if(opcao == 7){
         entrada.escolha_entrada();
-        for(int i = 1; i < 5 ; i++){
+        for(int i = 1; i < 6 ; i++){
             entrada.escolha_tamanho(i);
             entrada.make_vector();
             algoritmo->processar(&entrada);

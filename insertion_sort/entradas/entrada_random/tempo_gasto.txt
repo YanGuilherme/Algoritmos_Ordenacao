@@ -1,4 +1,0 @@
-Tempo: 0.000000 Tamanho: 10
-Tempo: 0.000000 Tamanho: 100
-Tempo: 0.001001 Tamanho: 1000
-Tempo: 0.064014 Tamanho: 10000
