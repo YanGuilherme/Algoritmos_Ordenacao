@@ -35,8 +35,8 @@ int main(){
         entrada.make_vector();
         algoritmo->processar(&entrada); //Método virtual "processar" chama todos os metodos necessários 
                                         //  para entrada, ordenação e saída, além de salvar tudo em arquivos.
-        entrada.destroy_vector();
-        cout << "Pronto!" << endl;
+        entrada.destroy_vector(); //passar pro linuxx
+        cout << "Pronto!" << endl; // passar pra ca
     } else if(opcao == 7){
         entrada.escolha_entrada();
         for(int i = 1; i < 6 ; i++){
