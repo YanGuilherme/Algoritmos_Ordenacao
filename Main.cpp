@@ -30,17 +30,9 @@ int main(){
     scanf("%d", &opcao);
     if(opcao <= 6 && opcao > 0){
         entrada.escolha_tamanho(opcao);
-        //cout << "Tamanho: " << entrada.tamanho << endl;
-        
         entrada.escolha_entrada();
-        cout << "Tamanho: " << entrada.tamanho << endl;
-
         entrada.make_vector();
-        cout << "Tamanho: " << entrada.tamanho << endl;
-
         algoritmo->processar(&entrada);
-        cout << "Tamanho: " << entrada.tamanho << endl;
-
     } else if(opcao == 7){
         entrada.escolha_entrada();
         for(int i = 1; i < 5 ; i++){

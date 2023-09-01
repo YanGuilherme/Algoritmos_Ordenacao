@@ -124,8 +124,7 @@ void InsertionSort::salvar_saida(DadosEntrada entrada){ //to do neguin
 char entrada_arquivo[200];
     FILE* arquivo = NULL;
 
-    if(entrada.tipo_entrada == CRESCENTE){
-                               
+    if(entrada.tipo_entrada == CRESCENTE){                       
         string nome_pasta = "insertion_sort/entradas/entrada_crescente/";
         string numStr = std::to_string(entrada.tamanho);
         nome_pasta += (numStr + "_ordenado.txt");
