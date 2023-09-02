@@ -36,6 +36,7 @@ int main(){
         algoritmo->processar(&entrada); //Método virtual processar chama todos os metodos necessários 
                                         //  para entrada, ordenação e saída, além de salvar tudo em arquivos.
         entrada.destroy_vector();
+        cout << "Pronto!" << endl;
     } else if(opcao == 7){
         entrada.escolha_entrada();
         for(int i = 1; i < 6 ; i++){
@@ -43,6 +44,8 @@ int main(){
             entrada.make_vector();
             algoritmo->processar(&entrada);
             entrada.destroy_vector();
+        cout << "Pronto!" << endl;
+
         }
     } else {
         cout << "Entrada invalida.\n";
