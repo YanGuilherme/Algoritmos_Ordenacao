@@ -27,8 +27,7 @@ double getTempoAtual(){
     return duracao.count();
 }
 
-InsertionSort::InsertionSort(){
-}
+InsertionSort::InsertionSort(){}
 
 InsertionSort::~InsertionSort(){}
 
@@ -66,10 +65,10 @@ void InsertionSort::salvar_entrada(DadosEntrada entrada){
         arquivo = fopen(caminho_arquivo, "w"); 
         if(arquivo == NULL){cout << "Nao foi possivel abrir o arquivo" << endl;exit(1);}
         sprintf(entrada_arquivo, "%d\n", entrada.tamanho);
-        fprintf(arquivo, entrada_arquivo);
+        fprintf(arquivo,"%s", entrada_arquivo);
         for(int i = 0; i < entrada.tamanho ; i++){
             sprintf(entrada_arquivo, "%d\n", entrada.vector[i]);
-            fprintf(arquivo, entrada_arquivo);
+            fprintf(arquivo,"%s", entrada_arquivo);
         }
         fclose(arquivo);
 
@@ -85,10 +84,10 @@ void InsertionSort::salvar_entrada(DadosEntrada entrada){
         arquivo = fopen(caminho_arquivo, "w"); 
         if(arquivo == NULL){cout << "Nao foi possivel abrir o arquivo" << endl;exit(1);}
         sprintf(entrada_arquivo, "%d\n", entrada.tamanho);
-        fprintf(arquivo, entrada_arquivo);
+        fprintf(arquivo,"%s", entrada_arquivo);
         for(int i = 0; i < entrada.tamanho ; i++){
             sprintf(entrada_arquivo, "%d\n", entrada.vector[i]);
-            fprintf(arquivo, entrada_arquivo);
+            fprintf(arquivo,"%s", entrada_arquivo);
         }
         fclose(arquivo);
 
@@ -106,10 +105,10 @@ void InsertionSort::salvar_entrada(DadosEntrada entrada){
         if(arquivo == NULL){cout << "Nao foi possivel abrir o arquivo" << endl;exit(1);}
 
         sprintf(entrada_arquivo, "%d\n", entrada.tamanho);
-        fprintf(arquivo, entrada_arquivo);
+        fprintf(arquivo,"%s", entrada_arquivo);
         for(int i = 0; i < entrada.tamanho ; i++){
             sprintf(entrada_arquivo, "%d\n", entrada.vector[i]);
-            fprintf(arquivo, entrada_arquivo);
+            fprintf(arquivo,"%s", entrada_arquivo);
         }
         fclose(arquivo);
     }
@@ -131,7 +130,7 @@ char entrada_arquivo[200];
 
         for(int i = 0; i < entrada.tamanho ; i++){
             sprintf(entrada_arquivo, "%d\n", entrada.vector[i]);
-            fprintf(arquivo, entrada_arquivo);
+            fprintf(arquivo,"%s", entrada_arquivo);
         }
         fclose(arquivo);
 
@@ -147,7 +146,7 @@ char entrada_arquivo[200];
 
         for(int i = 0; i < entrada.tamanho ; i++){
             sprintf(entrada_arquivo, "%d\n", entrada.vector[i]);
-            fprintf(arquivo, entrada_arquivo);
+            fprintf(arquivo,"%s", entrada_arquivo);
         }
         fclose(arquivo);
 
@@ -163,7 +162,7 @@ char entrada_arquivo[200];
 
         for(int i = 0; i < entrada.tamanho ; i++){
             sprintf(entrada_arquivo, "%d\n", entrada.vector[i]);
-            fprintf(arquivo, entrada_arquivo);
+            fprintf(arquivo,"%s", entrada_arquivo);
         }
         fclose(arquivo);
     }
@@ -173,22 +172,22 @@ char entrada_arquivo[200];
 void InsertionSort::salvar_tempos(DadosEntrada entrada){
     FILE *arq;
     if(entrada.tipo_entrada == CRESCENTE){
-        char tempos_execucao[40];
+        char tempos_execucao[50];
         arq = fopen("insertion_sort/entradas/entrada_crescente/tempo_gasto.txt", "a");
         sprintf(tempos_execucao, "Tempo: %lf Tamanho: %d\n", duracao, entrada.tamanho);
-        fprintf(arq, tempos_execucao);
+        fprintf(arq,"%s", tempos_execucao);
         fclose(arq);
     }else if(entrada.tipo_entrada == DECRESCENTE){
-        char tempos_execucao[30];
+        char tempos_execucao[50];
         arq = fopen("insertion_sort/entradas/entrada_decrescente/tempo_gasto.txt", "a");
         sprintf(tempos_execucao, "Tempo: %lf Tamanho: %d\n", duracao, entrada.tamanho);
-        fprintf(arq, tempos_execucao);
+        fprintf(arq,"%s", tempos_execucao);
         fclose(arq);
     }else if(entrada.tipo_entrada == RANDOM){
-        char tempos_execucao[30];
+        char tempos_execucao[50];
         arq = fopen("insertion_sort/entradas/entrada_random/tempo_gasto.txt", "a");
         sprintf(tempos_execucao, "Tempo: %lf Tamanho: %d\n", duracao, entrada.tamanho);
-        fprintf(arq, tempos_execucao);
+        fprintf(arq,"%s", tempos_execucao);
         fclose(arq);
     }
 }
