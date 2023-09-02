@@ -33,18 +33,19 @@ int main(){
         entrada.escolha_tamanho(opcao);
         entrada.escolha_entrada();
         entrada.make_vector();
-        algoritmo->processar(&entrada);
-
+        algoritmo->processar(&entrada); //Método virtual processar chama todos os metodos necessários 
+                                        //  para entrada, ordenação e saída, além de salvar tudo em arquivos.
+        entrada.destroy_vector();
     } else if(opcao == 7){
         entrada.escolha_entrada();
         for(int i = 1; i < 6 ; i++){
             entrada.escolha_tamanho(i);
             entrada.make_vector();
             algoritmo->processar(&entrada);
-
+            entrada.destroy_vector();
         }
     } else {
-        cout << "Entrada inválida.\n";
+        cout << "Entrada invalida.\n";
     }
     return 0;
 

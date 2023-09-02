@@ -11,7 +11,7 @@ bool existe_diretorio(const char* path){
 }
 void criar_pasta(const char* path){
     if (existe_diretorio(path)) {
-        std::cout << "O diretorio existe." << std::endl;
+        //std::cout << "O diretorio existe." << std::endl; //se necessario avisa, só ligar
     } else {
         char command[100]; // Ajuste o tamanho conforme necessário
         snprintf(command, sizeof(command), "mkdir \"%s\"", path);
@@ -201,11 +201,11 @@ void InsertionSort::exibir_duracao(DadosEntrada entrada){
 
 void InsertionSort::processar(DadosEntrada *entrada){
     salvar_entrada(*entrada);
-    entrada->exibe_vector();
+    //entrada->exibe_vector();
     ordenar(entrada);
     salvar_saida(*entrada);
-    entrada->exibe_vector();
+    //entrada->exibe_vector();
     salvar_tempos(*entrada);
-    exibir_duracao(*entrada);
+    //exibir_duracao(*entrada);
 }
 

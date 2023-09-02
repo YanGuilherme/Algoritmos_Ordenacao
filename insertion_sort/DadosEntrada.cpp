@@ -80,4 +80,6 @@ void DadosEntrada::escolha_tamanho(int opcao){
 
 }
 
-
+void DadosEntrada::destroy_vector(){
+    free(vector);
+}
