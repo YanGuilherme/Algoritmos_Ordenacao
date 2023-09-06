@@ -1,12 +1,15 @@
 #ifndef ALGORITMO_H
 #define ALGORITMO_H
-#include "DadosEntrada.h"
+
+#include "../DadosEntrada.h"
 
 class DadosEntrada;
 
 class Algoritmo{
     public:
-        virtual void processar(DadosEntrada *) = 0;
+        double duracao;
+        virtual void ordenar(DadosEntrada *) = 0;
+        ~Algoritmo(){}
 
 };
 

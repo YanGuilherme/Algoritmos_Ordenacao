@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -g
 LIBS =
 
 SRC_DIR = insertion_sort
-SRC_FILES = Main.cpp $(SRC_DIR)/Insertion_sort.cpp $(SRC_DIR)/DadosEntrada.cpp
+SRC_FILES = Main.cpp $(SRC_DIR)/Insertion_sort.cpp DadosEntrada.cpp Arquivo.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
 EXECUTABLE = Main.exe
@@ -16,7 +16,6 @@ $(EXECUTABLE): $(OBJ_FILES)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	del /Q insertion_sort\$(OBJ_FILES) $(EXECUTABLE)
-	del /Q $(OBJ_FILES) $(EXECUTABLE)
-	rmdir /S /Q insertion_sort\entradas
+
+
+
