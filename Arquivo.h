@@ -13,12 +13,12 @@
 #include <cstring> // Para a função strcpy
 #include <cstdio>
 #include <fstream>
-
+using namespace std;
 class Arquivo{
     public:
-        void salvar_entrada(DadosEntrada);
-        void salvar_saida(DadosEntrada);
-        void salvar_tempo(DadosEntrada,double);
+        void salvar_entrada(string, DadosEntrada);
+        void salvar_saida(string, DadosEntrada);
+        void salvar_tempo(string, DadosEntrada, double);
         void criar_pasta(const char*);
 };
 
