@@ -51,9 +51,9 @@ int main(){
 
     while(true){
         system("cls");
-        printf("\t-----INICIO-----\n\n");
+        printf("\t\t-----INICIO-----\n\n");
         printf("1. Escolher algoritmo para ordenar um vetor\n");
-        printf("2. Apagar pastas geradas\n");
+        printf("2. Apagar todas as pastas geradas\n");
         printf("0. Sair do programa\n");
         printf("Digite: ");
         cin >> opcao;
