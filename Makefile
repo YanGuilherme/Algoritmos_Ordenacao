@@ -17,7 +17,7 @@ $(EXECUTABLE): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	.\clean.bat
+	del *.o *.exe /s /q
 
 
 

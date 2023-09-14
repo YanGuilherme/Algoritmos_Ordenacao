@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 #include "../DadosEntrada.h"
+using namespace std;
+
 
 class DadosEntrada;
 

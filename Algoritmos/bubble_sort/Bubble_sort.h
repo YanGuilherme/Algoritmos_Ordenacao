@@ -5,9 +5,6 @@
 #include "../../DadosEntrada.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <chrono>
-#include <random>
-#include <math.h>
 #include <iostream>
 #include "../../Arquivo.h"
 

@@ -102,19 +102,19 @@ void Arquivo::salvar_tempo(string nome_algorithm, DadosEntrada entrada, double d
     if(entrada.tipo_entrada == CRESCENTE){
         nome_pasta = "Algoritmos/" + (nome_algorithm + "/arquivos_tempo/crescente/");
         path_pasta = nome_pasta.c_str();
-        criar_pasta(path_pasta); //confere se tem a pasta criada e cria se nao tiver
+        criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
         nome_pasta += ("tempo_crescente_" + tamanho_Str + ".txt");
     }else if(entrada.tipo_entrada == DECRESCENTE){
         nome_pasta = "Algoritmos/" + (nome_algorithm + "/arquivos_tempo/decrescente/");
         path_pasta = nome_pasta.c_str();
-        criar_pasta(path_pasta); //confere se tem a pasta criada e cria se nao tiver
+        criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
         nome_pasta += ("tempo_decrescente_" + tamanho_Str + ".txt");
     }else if(entrada.tipo_entrada == RANDOM){
         nome_pasta = "Algoritmos/" + (nome_algorithm + "/arquivos_tempo/random/");
         path_pasta = nome_pasta.c_str();
-        criar_pasta(path_pasta); //confere se tem a pasta criada e cria se nao tiver
+        criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
         nome_pasta += ("tempo_random_" + tamanho_Str + ".txt");
     }
