@@ -50,11 +50,7 @@ void DadosEntrada::exibe_vector(){
     printf("\n\n");
 }
 
-void DadosEntrada::escolha_entrada(){
-    int b;
-    printf("Digite o tipo de entrada dentre as opcoes:\n");
-    printf("1. Crescente\n2. Decrescente\n3. Random\n");
-    scanf("%d", &b);
+void DadosEntrada::escolha_tipo_entrada(int b){
     switch (b){
     case 1:
         tipo_entrada = CRESCENTE;

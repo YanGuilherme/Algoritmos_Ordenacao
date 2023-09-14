@@ -32,6 +32,16 @@ Algoritmo* selecionarAlgoritimo(){
     return nullptr;
 } 
 
+void executar(DadosEntrada entrada, Algoritmo* algoritmo, Arquivo save){
+    entrada.make_vector();
+    save.salvar_entrada(algoritmo->nome, entrada); //        save.salvar_entrada(algortimo, entrada); 
+    algoritmo->ordenar(&entrada);
+    save.salvar_saida(algoritmo->nome, entrada);
+    save.salvar_tempo(algoritmo->nome, entrada, algoritmo->duracao);
+    cout << entrada.tamanho << " - pronto!" << endl;
+    entrada.destroy_vector();
+}
+
 using namespace std;
 int main(){
     Arquivo save;
@@ -48,6 +58,8 @@ int main(){
         printf("Digite: ");
         cin >> opcao;
         system("cls");
+
+
         if(opcao == 1){
             algoritmo = selecionarAlgoritimo();
             printf("Digite o tamanho da entrada que deseja dentre as opcoes: \n");
@@ -57,29 +69,48 @@ int main(){
             system("cls");
             if(opcao <= 6 && opcao > 0){
                 entrada.escolha_tamanho(opcao);
-                entrada.escolha_entrada();
-                system("cls");
-                entrada.make_vector();
-                save.salvar_entrada(algoritmo->nome, entrada); //        save.salvar_entrada(algortimo, entrada); 
-                algoritmo->ordenar(&entrada);
-                save.salvar_saida(algoritmo->nome, entrada);
-                save.salvar_tempo(algoritmo->nome, entrada, algoritmo->duracao);
-                cout << entrada.tamanho << " - pronto!" << endl;
-                entrada.destroy_vector();
-            } else if(opcao == 7){
-                entrada.escolha_entrada();
-                system("cls");
-                for(int i = 1; i < 6 ; i++){
-                    entrada.escolha_tamanho(i);
-                    entrada.make_vector();
-                    save.salvar_entrada(algoritmo->nome, entrada);
-                    algoritmo->ordenar(&entrada);
-                    save.salvar_saida(algoritmo->nome, entrada);
-                    save.salvar_tempo(algoritmo->nome, entrada, algoritmo->duracao);
-                    cout << entrada.tamanho << " - pronto!" << endl;
-                    entrada.destroy_vector();
+                int escolha_tipo;
+                printf("Digite o tipo de entrada dentre as opcoes:\n");
+                printf("1. Crescente\n2. Decrescente\n3. Random\n4. Todos os tipos");
+                cin >> escolha_tipo ;
+                if(escolha_tipo == 4){
+                    for(int i = 1; i < 4; i++){
+                        entrada.escolha_tipo_entrada(i);
+                        executar(entrada, algoritmo, save);
+                    }
+                cout << endl;
+                }else{
+                    entrada.escolha_tipo_entrada(escolha_tipo);
+                    executar(entrada, algoritmo, save);
                 }
+                cout << endl;
+
+
+            } else if(opcao == 7){
+                int escolha_tipo;
+                printf("Digite o tipo de entrada dentre as opcoes:\n");
+                printf("1. Crescente\n2. Decrescente\n3. Random\n4. Todos os tipos\n");
+                cin >> escolha_tipo ;
+                if(escolha_tipo == 4){
+                    for(int i = 1; i < 4; i++){
+                    entrada.escolha_tipo_entrada(i);
+                    for(int i = 1; i < 5 ; i++){
+                        entrada.escolha_tamanho(i);
+                        executar(entrada, algoritmo, save);
+                        }
+                    }
+                cout << endl;
+                }else{
+                    entrada.escolha_tipo_entrada(escolha_tipo);
+                    for(int i = 1; i < 5 ; i++){
+                    entrada.escolha_tamanho(i);
+                    executar(entrada, algoritmo, save);
+                    }
+                }
+                cout << endl;
             }
+
+
         }else if(opcao == 2){
             system("apagar_pastas.bat");
         }else if(opcao == 0){

@@ -24,7 +24,7 @@ class DadosEntrada{
 
         void make_vector();
         void exibe_vector();
-        void escolha_entrada();
+        void escolha_tipo_entrada(int);
         void escolha_tamanho(int);
         void destroy_vector();
 };
