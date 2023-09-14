@@ -3,6 +3,9 @@
 #include "Arquivo.h"
 #include "Algoritmos/Algoritmo.h"
 #include "Algoritmos/bubble_sort/Bubble_sort.h"
+#include "Algoritmos/selection_sort/Selection_sort.h"
+
+
 
 using namespace std;
 
@@ -11,6 +14,7 @@ Algoritmo* selecionarAlgoritimo(){
     printf("Selecione o algoritmo: \n");
     printf("1.Insertion Sort\n");
     printf("2.Bubble Sort\n");
+    printf("3.Selection Sort\n");
     cout << "Digite: ";
     cin >> algoritmo;
     system("cls");
@@ -19,6 +23,8 @@ Algoritmo* selecionarAlgoritimo(){
         return new InsertionSort;
     case 2:
         return new BubbleSort;
+    case 3:
+        return new SelectionSort;
     default:
         cout << "Comando invalido" << endl;
         break;
@@ -34,6 +40,7 @@ int main(){
     int opcao;
 
     while(true){
+        system("cls");
         printf("\t-----INICIO-----\n\n");
         printf("1. Escolher algoritmo para ordenar um vetor\n");
         printf("2. Apagar pastas geradas\n");
@@ -77,8 +84,7 @@ int main(){
             system("apagar_pastas.bat");
         }else if(opcao == 0){
             exit(1);
-            }
-        else{
+        }else{
             cout << "Entrada invalida.\n";
         }
     }
