@@ -54,12 +54,15 @@ void DadosEntrada::escolha_tipo_entrada(int b){
     switch (b){
     case 1:
         tipo_entrada = CRESCENTE;
+        tipo = "Crescente";
         break;
     case 2:
         tipo_entrada = DECRESCENTE;
+        tipo = "Decrescente";
         break;
     case 3:
         tipo_entrada = RANDOM;
+        tipo = "Random";
         break;
     default:
         printf("Escolha invalida.\n");

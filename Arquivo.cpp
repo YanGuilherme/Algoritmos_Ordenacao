@@ -141,13 +141,13 @@ void Arquivo::criar_pasta(const char* path){
 }
 
 bool listarDiretoriosExistents(const char* rootPath, std::vector<std::string>& diretorios) {
-    std::string searchPath = std::string(rootPath) + "\\*";
+    string searchPath = string(rootPath) + "\\*";
 
     WIN32_FIND_DATAA findFileData;
     HANDLE hFind = FindFirstFileA(searchPath.c_str(), &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE) {
-        std::cout << "Nenhum diretorio encontrado." << std::endl;
+        cout << "Nenhum diretorio encontrado." << endl;
         return false;
     }
 
@@ -181,6 +181,71 @@ void Arquivo::apagar_pasta_especifica(){
         cout << "Apagando o diretorio " << dirPath << "..." << endl;
         string command = "rmdir /s /q \"" + dirPath + "\"";
         system(command.c_str());
+    }
+
+}
+
+void exibirConteudoArquivoTxt(const string& filePath) {
+    ifstream arquivo(filePath);
+
+    if (!arquivo.is_open()) {
+        return;
+    }
+
+    string linha;
+    while (getline(arquivo, linha)) {
+        cout << linha << endl << endl;
+    }
+
+    arquivo.close();
+}
+
+void listarArquivosTxt(const string& dirPath) {
+    // Abre o diretório
+    DIR* directory = opendir(dirPath.c_str());
+    
+    if (directory == nullptr) {
+        return;
+    }
+ 
+    struct dirent* entry;
+    while ((entry = readdir(directory)) != nullptr) {
+        string fileName = entry->d_name;
+        
+        // Verifica se o arquivo possui extensão .txt
+        if (fileName.length() > 4 && fileName.substr(fileName.length() - 4) == ".txt") {
+            cout << fileName << ":" << endl;
+            string filePath = dirPath + "\\" + fileName;
+            exibirConteudoArquivoTxt(filePath);
+        }
+    }
+
+    // Fecha o diretório
+    closedir(directory);
+}
+
+void Arquivo::visualizar_tempos(){
+    const char* rootPath = "Arquivos_IO";
+    vector<string> diretorios;
+    if (listarDiretoriosExistents(rootPath, diretorios)) {
+        cout << "Diretorios disponiveis para visualizacao: " << endl;
+        for (size_t i = 0; i < diretorios.size(); ++i) {
+            cout << i + 1 << ". " << diretorios[i] << endl;
+            }
+        }
+    cout << "Escolha o algoritmo para ser visualizado (0 para sair): ";
+    int escolha;
+    cin >> escolha;
+    if (escolha > 0 && escolha <= static_cast<int>(diretorios.size())) {
+        string dirPath = string(rootPath) + "\\" + diretorios[escolha - 1];
+        dirPath += "\\arquivos_tempo"; // Adiciona "arquivos_tempo" ao caminho
+        cout << "Diretorio: " << dirPath << endl;
+        
+        // Listar arquivos .txt dentro das subpastas
+        listarArquivosTxt(dirPath + "\\crescente");
+        listarArquivosTxt(dirPath + "\\decrescente");
+        listarArquivosTxt(dirPath + "\\random");
+        system("pause");
     }
 
 }

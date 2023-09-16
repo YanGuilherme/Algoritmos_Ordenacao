@@ -7,12 +7,16 @@
 #include <random>
 #include <math.h>
 #include <iostream>
+#include <map>
+
+using namespace std;
 
 enum TipoEntrada{
     CRESCENTE,
     DECRESCENTE,
     RANDOM
 };
+
 
 class DadosEntrada{
     private:
@@ -21,7 +25,7 @@ class DadosEntrada{
         TipoEntrada tipo_entrada;
         DadosEntrada();
         DadosEntrada(int, TipoEntrada);
-
+        string tipo;
         void make_vector();
         void exibe_vector();
         void escolha_tipo_entrada(int);

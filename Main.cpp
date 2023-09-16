@@ -2,7 +2,8 @@
 #include "DadosEntrada.h"
 #include "Arquivo.h"
 #include "Algoritmos/Algoritmo.h"
-#include "Algoritmos/bubble_sort/Bubble_sort.h"
+#include "Algoritmos/bubble_sortv1/Bubble_sortv1.h"
+#include "Algoritmos/bubble_sortv2/Bubble_sortv2.h"
 #include "Algoritmos/selection_sort/Selection_sort.h"
 #include "Algoritmos/shell_sort/Shell_sort.h"
 // #include "Algoritmos/merge_sort/Merge_sort.h"
@@ -13,11 +14,12 @@ using namespace std;
 
 Algoritmo* selecionarAlgoritimo(){
     int algoritmo;
-    printf("Selecione o algoritmo: \n");
-    printf("1. Insertion Sort\n");
-    printf("2. Bubble Sort\n");
-    printf("3. Selection Sort\n");
-    printf("4. Shell Sort\n");
+    cout << "Selecione o algoritmo:" << endl;
+    cout << "1. Insertion Sort" << endl;
+    cout << "2. Bubble Sort (nao otimizado)" << endl;
+    cout << "3. Bubble Sort (otimizado)" << endl;
+    cout << "4. Selection Sort" << endl;
+    cout << "5. Shell Sort" << endl;
     // printf("5.Merge Sort\n");
     cout << "Digite: ";
     cin >> algoritmo;
@@ -27,12 +29,15 @@ Algoritmo* selecionarAlgoritimo(){
         return new InsertionSort;
         break;
     case 2:
-        return new BubbleSort;
+        return new BubbleSortv1;
         break;
     case 3:
-        return new SelectionSort;
+        return new BubbleSortv2;
         break;
     case 4:
+        return new SelectionSort;
+        break;
+    case 5:
         return new ShellSort;
         break;
     // case 5:
@@ -50,7 +55,7 @@ void processar(DadosEntrada entrada, Algoritmo* algoritmo, Arquivo save){
     algoritmo->ordenar(&entrada);
     save.salvar_saida(algoritmo->nome, entrada);
     save.salvar_tempo(algoritmo->nome, entrada, algoritmo->duracao);
-    cout << entrada.tamanho << " - pronto!" << endl;
+    cout << entrada.tamanho << " - " << entrada.tipo << " - pronto!" << endl;
     entrada.destroy_vector();
 }
 
@@ -66,6 +71,7 @@ int main(){
         printf("\t\t-----INICIO-----\n\n");
         printf("1. Escolher algoritmo para ordenar um vetor\n");
         printf("2. Apagar pastas geradas\n");
+        cout << "3. Visualizar tempos" << endl;
         printf("0. Sair do programa\n");
         printf("Digite: ");
         cin >> opcao;
@@ -128,6 +134,7 @@ int main(){
         }else if(opcao == 2){
             cout << "1. Escolher uma pasta para apagar" << endl;
             cout << "2. Apagar todas as pastas" << endl;
+            cout << "0. Sair" << endl;
             cout << "Digite: ";
             int choose;
             cin >> choose;
@@ -135,10 +142,14 @@ int main(){
                 save.apagar_pasta_especifica();
             }else if(choose == 2){
                 system("apagar_pastas.bat");
+            }else if(choose == 0){
+                cout << " ";
             }else{
                 cout << "Opcao invalida." << endl;
             }
             // system("pause");
+        }else if(opcao == 3){
+            save.visualizar_tempos();
         }else if(opcao == 0){
             exit(1);
         }else{

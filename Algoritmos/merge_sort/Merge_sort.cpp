@@ -40,8 +40,7 @@ for(int p = inicio; p <= fim; p++)
     auxiliar[p] = saida [p];
 }
 
-void MergeSort::ordenar(int* entrada, int* auxiliar, int inicio, int fim){
-    
+void MergeSort::ordenar(int* entrada, int* auxiliar, int inicio, int fim){ 
     if(inicio < fim){
         int meio = (inicio + fim) / 2;
         ordenar(entrada, auxiliar, inicio, meio);

@@ -1,5 +1,5 @@
-#ifndef BUBBLE_SORT_H
-#define BUBBLE_SORT_H
+#ifndef BUBBLE_SORTV1_H
+#define BUBBLE_SORTV1_H
 
 #include "../Algoritmo.h"
 #include "../../DadosEntrada.h"
@@ -8,10 +8,10 @@
 #include <iostream>
 #include "../../Arquivo.h"
 
-class BubbleSort: public Algoritmo{
+class BubbleSortv1: public Algoritmo{
     public:
-    BubbleSort();
-    ~BubbleSort();
+    BubbleSortv1();
+    ~BubbleSortv1();
     void ordenar(DadosEntrada*);
 };
 

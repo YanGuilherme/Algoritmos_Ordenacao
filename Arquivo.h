@@ -13,6 +13,7 @@
 #include <cstring> // Para a função strcpy
 #include <cstdio>
 #include <fstream>
+#include <dirent.h>
 using namespace std;
 class Arquivo{
     public:
@@ -21,6 +22,7 @@ class Arquivo{
         void salvar_tempo(string, DadosEntrada, double);
         void criar_pasta(const char*);
         void apagar_pasta_especifica();
+        void visualizar_tempos();
 };
 
 #endif

@@ -13,6 +13,8 @@ class MergeSort: public Algoritmo{
     MergeSort();
     ~MergeSort();
     void ordenar(int*, int*,int,int);
+    int* aux;
+    int inicio, fim;
 };
 
 #endif
