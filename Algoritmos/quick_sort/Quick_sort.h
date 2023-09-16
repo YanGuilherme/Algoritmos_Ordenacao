@@ -1,5 +1,5 @@
-#ifndef BUBBLE_SORTV2_H
-#define BUBBLE_SORTV2_H
+#ifndef QUICK_SORT_H
+#define QUICK_SORT_H
 
 #include "../Algoritmo.h"
 #include "../../DadosEntrada.h"
@@ -8,12 +8,12 @@
 #include <iostream>
 #include "../../Arquivo.h"
 
-class BubbleSortv2: public Algoritmo{
+class QuickSort: public Algoritmo{
     public:
-        BubbleSortv2();
-        ~BubbleSortv2();
+        QuickSort();
+        ~QuickSort();
         void ordenar(DadosEntrada*);
+    private:
+        void quick_sort(int*, int, int);
 };
-
-
 #endif

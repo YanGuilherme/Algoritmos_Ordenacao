@@ -7,6 +7,8 @@
 #include "Algoritmos/selection_sort/Selection_sort.h"
 #include "Algoritmos/shell_sort/Shell_sort.h"
 #include "Algoritmos/merge_sort/Merge_sort.h"
+#include "Algoritmos/quick_sort/Quick_sort.h"
+
 
 
 
@@ -21,6 +23,7 @@ Algoritmo* selecionarAlgoritimo(){
     cout << "4. Selection Sort" << endl;
     cout << "5. Shell Sort" << endl;
     cout << "6. Merge Sort" << endl;
+    cout << "7. Quick Sort" << endl;
     cout << "Digite: ";
     cin >> algoritmo;
     system("cls");
@@ -43,6 +46,9 @@ Algoritmo* selecionarAlgoritimo(){
     case 6:
         return new MergeSort;
         break;
+    case 7:
+        return new QuickSort;
+        break;
     default:
         cout << "Comando invalido" << endl;
         break;
@@ -60,7 +66,6 @@ void processar(DadosEntrada entrada, Algoritmo* algoritmo, Arquivo save){
     entrada.destroy_vector();
 }
 
-using namespace std;
 int main(){
     Arquivo save;
     DadosEntrada entrada;

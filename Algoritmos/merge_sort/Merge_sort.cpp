@@ -7,12 +7,13 @@ MergeSort::MergeSort():Algoritmo("merge_sort"){}
 
 
 void MergeSort::ordenar(DadosEntrada* dados){ 
-    double inicio = getTempoAtual();
     int* aux = new int[dados->get_tamanho()];
+    double inicio = getTempoAtual();
     mergeSort(dados->vector, aux, 0, dados->get_tamanho()-1);
-    delete[] aux;
     double fim = getTempoAtual();
     duracao = fim-inicio;
+    delete[] aux;
+
 }
 
 void MergeSort::mergeSort(int* entrada, int* auxiliar, int inicio, int fim){

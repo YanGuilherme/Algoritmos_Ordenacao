@@ -11,10 +11,11 @@
 class MergeSort: public Algoritmo{
     public:
         MergeSort();
-        void ordenar(DadosEntrada *dados);
-        void mergeSort(int *entrada, int *auxiliar, int inicio, int fim);
-        void merge(int *entrada, int *auxiliar, int inicio, int meio, int fim);
+        void ordenar(DadosEntrada *);
         ~MergeSort();
+    private:
+        void mergeSort(int*, int*, int , int);
+        void merge(int*, int*, int , int , int);
 };
 
 #endif

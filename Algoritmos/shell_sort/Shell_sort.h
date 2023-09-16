@@ -11,7 +11,7 @@
 class ShellSort: public Algoritmo{
 
 public:
-    ShellSort(/* args */);
+    ShellSort();
     ~ShellSort();
     void ordenar(DadosEntrada*);
 };

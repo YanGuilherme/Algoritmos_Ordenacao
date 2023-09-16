@@ -10,9 +10,9 @@
 
 class BubbleSortv1: public Algoritmo{
     public:
-    BubbleSortv1();
-    ~BubbleSortv1();
-    void ordenar(DadosEntrada*);
+        BubbleSortv1();
+        ~BubbleSortv1();
+        void ordenar(DadosEntrada*);
 };
 
 
