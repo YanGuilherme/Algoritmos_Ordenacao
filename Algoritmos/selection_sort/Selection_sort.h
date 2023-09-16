@@ -12,7 +12,6 @@ class SelectionSort: public Algoritmo{
         SelectionSort();
         ~SelectionSort();
         void ordenar(DadosEntrada*);
-
 };
 
 #endif

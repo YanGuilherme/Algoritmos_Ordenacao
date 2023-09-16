@@ -20,6 +20,7 @@ class Arquivo{
         void salvar_saida(string, DadosEntrada);
         void salvar_tempo(string, DadosEntrada, double);
         void criar_pasta(const char*);
+        void apagar_pasta_especifica();
 };
 
 #endif

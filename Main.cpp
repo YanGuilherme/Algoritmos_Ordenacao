@@ -4,6 +4,8 @@
 #include "Algoritmos/Algoritmo.h"
 #include "Algoritmos/bubble_sort/Bubble_sort.h"
 #include "Algoritmos/selection_sort/Selection_sort.h"
+#include "Algoritmos/shell_sort/Shell_sort.h"
+// #include "Algoritmos/merge_sort/Merge_sort.h"
 
 
 
@@ -12,19 +14,29 @@ using namespace std;
 Algoritmo* selecionarAlgoritimo(){
     int algoritmo;
     printf("Selecione o algoritmo: \n");
-    printf("1.Insertion Sort\n");
-    printf("2.Bubble Sort\n");
-    printf("3.Selection Sort\n");
+    printf("1. Insertion Sort\n");
+    printf("2. Bubble Sort\n");
+    printf("3. Selection Sort\n");
+    printf("4. Shell Sort\n");
+    // printf("5.Merge Sort\n");
     cout << "Digite: ";
     cin >> algoritmo;
     system("cls");
     switch (algoritmo){
     case 1:
         return new InsertionSort;
+        break;
     case 2:
         return new BubbleSort;
+        break;
     case 3:
         return new SelectionSort;
+        break;
+    case 4:
+        return new ShellSort;
+        break;
+    // case 5:
+        // return new MergeSort();
     default:
         cout << "Comando invalido" << endl;
         break;
@@ -32,7 +44,7 @@ Algoritmo* selecionarAlgoritimo(){
     return nullptr;
 } 
 
-void executar(DadosEntrada entrada, Algoritmo* algoritmo, Arquivo save){
+void processar(DadosEntrada entrada, Algoritmo* algoritmo, Arquivo save){
     entrada.make_vector();
     save.salvar_entrada(algoritmo->nome, entrada); //        save.salvar_entrada(algortimo, entrada); 
     algoritmo->ordenar(&entrada);
@@ -53,7 +65,7 @@ int main(){
         system("cls");
         printf("\t\t-----INICIO-----\n\n");
         printf("1. Escolher algoritmo para ordenar um vetor\n");
-        printf("2. Apagar todas as pastas geradas\n");
+        printf("2. Apagar pastas geradas\n");
         printf("0. Sair do programa\n");
         printf("Digite: ");
         cin >> opcao;
@@ -71,17 +83,18 @@ int main(){
                 entrada.escolha_tamanho(opcao);
                 int escolha_tipo;
                 printf("Digite o tipo de entrada dentre as opcoes:\n");
-                printf("1. Crescente\n2. Decrescente\n3. Random\n4. Todos os tipos");
+                printf("1. Crescente\n2. Decrescente\n3. Random\n4. Todos os tipos\n");
+                printf("Digite: ");
                 cin >> escolha_tipo ;
                 if(escolha_tipo == 4){
                     for(int i = 1; i < 4; i++){
                         entrada.escolha_tipo_entrada(i);
-                        executar(entrada, algoritmo, save);
+                        processar(entrada, algoritmo, save);
                     }
                 cout << endl;
                 }else{
                     entrada.escolha_tipo_entrada(escolha_tipo);
-                    executar(entrada, algoritmo, save);
+                    processar(entrada, algoritmo, save);
                 }
                 cout << endl;
 
@@ -90,21 +103,22 @@ int main(){
                 int escolha_tipo;
                 printf("Digite o tipo de entrada dentre as opcoes:\n");
                 printf("1. Crescente\n2. Decrescente\n3. Random\n4. Todos os tipos\n");
+                printf("Digite: ");
                 cin >> escolha_tipo ;
                 if(escolha_tipo == 4){
-                    for(int i = 1; i < 4; i++){
+                    for(int i = 1; i < 4; i++){//itera sobre todos os tipos 
                     entrada.escolha_tipo_entrada(i);
-                    for(int i = 1; i < 5 ; i++){
+                    for(int i = 1; i < 7 ; i++){ //itera sobre todos os tamanhos de entrada
                         entrada.escolha_tamanho(i);
-                        executar(entrada, algoritmo, save);
+                        processar(entrada, algoritmo, save);
                         }
                     }
                 cout << endl;
                 }else{
                     entrada.escolha_tipo_entrada(escolha_tipo);
-                    for(int i = 1; i < 5 ; i++){
+                    for(int i = 1; i < 7 ; i++){//itera sobre todos os tamanhos de entrada
                     entrada.escolha_tamanho(i);
-                    executar(entrada, algoritmo, save);
+                    processar(entrada, algoritmo, save);
                     }
                 }
                 cout << endl;
@@ -112,7 +126,19 @@ int main(){
 
 
         }else if(opcao == 2){
-            system("apagar_pastas.bat");
+            cout << "1. Escolher uma pasta para apagar" << endl;
+            cout << "2. Apagar todas as pastas" << endl;
+            cout << "Digite: ";
+            int choose;
+            cin >> choose;
+            if(choose == 1){
+                save.apagar_pasta_especifica();
+            }else if(choose == 2){
+                system("apagar_pastas.bat");
+            }else{
+                cout << "Opcao invalida." << endl;
+            }
+            // system("pause");
         }else if(opcao == 0){
             exit(1);
         }else{
