@@ -79,3 +79,8 @@ void DadosEntrada::escolha_tamanho(int opcao){
 void DadosEntrada::destroy_vector(){
     free(vector);
 }
+
+int DadosEntrada::get_tamanho()
+{
+    return this->tamanho;
+}

@@ -6,7 +6,7 @@
 #include "Algoritmos/bubble_sortv2/Bubble_sortv2.h"
 #include "Algoritmos/selection_sort/Selection_sort.h"
 #include "Algoritmos/shell_sort/Shell_sort.h"
-// #include "Algoritmos/merge_sort/Merge_sort.h"
+#include "Algoritmos/merge_sort/Merge_sort.h"
 
 
 
@@ -20,7 +20,7 @@ Algoritmo* selecionarAlgoritimo(){
     cout << "3. Bubble Sort (otimizado)" << endl;
     cout << "4. Selection Sort" << endl;
     cout << "5. Shell Sort" << endl;
-    // printf("5.Merge Sort\n");
+    cout << "6. Merge Sort" << endl;
     cout << "Digite: ";
     cin >> algoritmo;
     system("cls");
@@ -40,8 +40,9 @@ Algoritmo* selecionarAlgoritimo(){
     case 5:
         return new ShellSort;
         break;
-    // case 5:
-        // return new MergeSort();
+    case 6:
+        return new MergeSort;
+        break;
     default:
         cout << "Comando invalido" << endl;
         break;

@@ -1,51 +1,60 @@
 #include "Merge_sort.h"
 
-//nao prontaaaaaaaaaaaaa
-
 MergeSort::~MergeSort()
 {
 }
 MergeSort::MergeSort():Algoritmo("merge_sort"){}
 
-void merge(int *saida, int *auxiliar, int inicio, int meio, int fim){
+
+void MergeSort::ordenar(DadosEntrada* dados){ 
+    double inicio = getTempoAtual();
+    int* aux = new int[dados->get_tamanho()];
+    mergeSort(dados->vector, aux, 0, dados->get_tamanho()-1);
+    delete[] aux;
+    double fim = getTempoAtual();
+    duracao = fim-inicio;
+}
+
+void MergeSort::mergeSort(int* entrada, int* auxiliar, int inicio, int fim){
+    if(inicio < fim){
+        int meio = (inicio + fim) / 2;
+        mergeSort(entrada, auxiliar, inicio, meio);
+        mergeSort(entrada, auxiliar, meio + 1, fim);
+        merge(entrada, auxiliar, inicio, meio, fim);
+    }
+}
+
+void MergeSort::merge(int* entrada, int* auxiliar, int inicio, int meio, int fim){
     int i, j, k;
     i = inicio;
     j = meio + 1;
     k = inicio;
     while(i <= meio && j <= fim){
-        if(auxiliar[i] < auxiliar[j]){
-            saida[k] = auxiliar[i];
+        if(entrada[i] < entrada[j]){ // Use entrada ao invés de auxiliar
+            auxiliar[k] = entrada[i];
             i++;
         }
         else{
-            saida[k] = auxiliar[j];
+            auxiliar[k] = entrada[j];
             j++;
         }
         k++;
     }
 
     while(i <= meio){
-        saida[k] = auxiliar[i];
+        auxiliar[k] = entrada[i];
         i++;
         k++;
     }
 
     while(j <= fim){
-        saida[k] = auxiliar[j];
+        auxiliar[k] = entrada[j];
         j++;
         k++;
-}
-//Copia os elementos que foram ordenados para o auxiliar
-for(int p = inicio; p <= fim; p++)
-    auxiliar[p] = saida [p];
-}
-
-void MergeSort::ordenar(int* entrada, int* auxiliar, int inicio, int fim){ 
-    if(inicio < fim){
-        int meio = (inicio + fim) / 2;
-        ordenar(entrada, auxiliar, inicio, meio);
-        ordenar(entrada, auxiliar, meio + 1, fim);
-        merge(entrada, auxiliar, inicio, meio, fim);
     }
+
+    // Copia os elementos que foram ordenados para o array entrada
+    for(int p = inicio; p <= fim; p++)
+        entrada[p] = auxiliar[p];
 }
 

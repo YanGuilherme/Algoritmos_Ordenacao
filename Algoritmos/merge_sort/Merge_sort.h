@@ -8,13 +8,13 @@
 #include <iostream>
 #include "../../Arquivo.h"
 
-//nao prontaaaaaaaaa
 class MergeSort: public Algoritmo{
-    MergeSort();
-    ~MergeSort();
-    void ordenar(int*, int*,int,int);
-    int* aux;
-    int inicio, fim;
+    public:
+        MergeSort();
+        void ordenar(DadosEntrada *dados);
+        void mergeSort(int *entrada, int *auxiliar, int inicio, int fim);
+        void merge(int *entrada, int *auxiliar, int inicio, int meio, int fim);
+        ~MergeSort();
 };
 
 #endif

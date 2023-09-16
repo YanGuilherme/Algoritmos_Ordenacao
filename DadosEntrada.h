@@ -31,6 +31,7 @@ class DadosEntrada{
         void escolha_tipo_entrada(int);
         void escolha_tamanho(int);
         void destroy_vector();
+        int get_tamanho();
 };
 
 

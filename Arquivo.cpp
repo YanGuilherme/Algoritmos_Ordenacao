@@ -3,6 +3,7 @@
 
 using namespace std;
 
+const char* DIRETORIO_RAIZ = "Arquivos_IO/";
 
 void Arquivo::salvar_entrada(string nome_algorithm, DadosEntrada entrada){
     char entrada_arquivo[200];
@@ -11,14 +12,14 @@ void Arquivo::salvar_entrada(string nome_algorithm, DadosEntrada entrada){
     string nome_pasta;
     const char* path_pasta;
     if(entrada.tipo_entrada == CRESCENTE){
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_entrada/crescente/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_entrada/crescente/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         string numStr = to_string(entrada.tamanho);
         nome_pasta += ("entrada_crescente_" + numStr + ".txt");
 
     }if(entrada.tipo_entrada == DECRESCENTE){                   
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_entrada/decrescente/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_entrada/decrescente/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
     
@@ -27,7 +28,7 @@ void Arquivo::salvar_entrada(string nome_algorithm, DadosEntrada entrada){
 
 
     }else if(entrada.tipo_entrada == RANDOM){
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_entrada/random/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_entrada/random/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         string numStr = std::to_string(entrada.tamanho);
@@ -56,14 +57,14 @@ void Arquivo::salvar_saida(string nome_algorithm, DadosEntrada entrada){ //to do
     string tamanho_Str;
 
     if(entrada.tipo_entrada == CRESCENTE){                       
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_saida/crescente/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_saida/crescente/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         tamanho_Str = std::to_string(entrada.tamanho);
         nome_pasta += ("saida_crescente_" + tamanho_Str + ".txt");
 
     }else if(entrada.tipo_entrada == DECRESCENTE){                       
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_saida/decrescente/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_saida/decrescente/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         tamanho_Str = std::to_string(entrada.tamanho);
@@ -71,7 +72,7 @@ void Arquivo::salvar_saida(string nome_algorithm, DadosEntrada entrada){ //to do
 
 
     }else if(entrada.tipo_entrada == RANDOM){                       
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_saida/random/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_saida/random/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); //confere se tem a pasta criada e cria se nao tiver
         tamanho_Str = std::to_string(entrada.tamanho);
@@ -100,19 +101,19 @@ void Arquivo::salvar_tempo(string nome_algorithm, DadosEntrada entrada, double d
     string tamanho_Str;
 
     if(entrada.tipo_entrada == CRESCENTE){
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_tempo/crescente/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_tempo/crescente/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
         nome_pasta += ("tempo_crescente_" + tamanho_Str + ".txt");
     }else if(entrada.tipo_entrada == DECRESCENTE){
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_tempo/decrescente/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_tempo/decrescente/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
         nome_pasta += ("tempo_decrescente_" + tamanho_Str + ".txt");
     }else if(entrada.tipo_entrada == RANDOM){
-        nome_pasta = "Arquivos_IO/" + (nome_algorithm + "/arquivos_tempo/random/");
+        nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_tempo/random/");
         path_pasta = nome_pasta.c_str();
         criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
