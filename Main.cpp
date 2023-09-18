@@ -58,11 +58,11 @@ Algoritmo* selecionarAlgoritimo(){
 
 void processar(DadosEntrada entrada, Algoritmo* algoritmo, Arquivo save){
     entrada.make_vector();
-    save.salvar_entrada(algoritmo->nome, entrada); //        save.salvar_entrada(algortimo, entrada); 
+    save.salvar_entrada(algoritmo->getNome(), entrada); //        save.salvar_entrada(algortimo, entrada); 
     algoritmo->ordenar(&entrada);
-    save.salvar_saida(algoritmo->nome, entrada);
-    save.salvar_tempo(algoritmo->nome, entrada, algoritmo->duracao);
-    cout << entrada.tamanho << " - " << entrada.tipo << " - pronto!" << endl;
+    save.salvar_saida(algoritmo->getNome(), entrada);
+    save.salvar_tempo(algoritmo->getNome(), entrada, algoritmo->duracao);
+    cout << entrada.tamanho << " - " << entrada.tipo << " - "<< algoritmo->getNome() << " - pronto!" << endl;
     entrada.destroy_vector();
 }
 
@@ -74,12 +74,13 @@ int main(){
 
     while(true){
         system("cls");
-        printf("\t\t-----INICIO-----\n\n");
-        printf("1. Escolher algoritmo para ordenar um vetor\n");
-        printf("2. Apagar pastas geradas\n");
+        cout << "\t\t-----INICIO----- " << endl << endl;
+        cout << ("1. Escolher algoritmo para ordenar um vetor\n");
+        cout <<("2. Apagar pastas geradas\n");
         cout << "3. Visualizar tempos" << endl;
-        printf("0. Sair do programa\n");
-        printf("Digite: ");
+        cout << "4. Creditos" << endl;
+        cout <<("0. Sair do programa\n");
+        cout <<("Digite: ");
         cin >> opcao;
         system("cls");
 
@@ -103,7 +104,7 @@ int main(){
                         entrada.escolha_tipo_entrada(i);
                         processar(entrada, algoritmo, save);
                     }
-                cout << endl;
+                    cout << endl << endl;
                 }else{
                     entrada.escolha_tipo_entrada(escolha_tipo);
                     processar(entrada, algoritmo, save);
@@ -120,21 +121,22 @@ int main(){
                 if(escolha_tipo == 4){
                     for(int i = 1; i < 4; i++){//itera sobre todos os tipos 
                     entrada.escolha_tipo_entrada(i);
-                    for(int i = 1; i < 7 ; i++){ //itera sobre todos os tamanhos de entrada
-                        entrada.escolha_tamanho(i);
-                        processar(entrada, algoritmo, save);
-                        }
+                        for(int i = 1; i < 7 ; i++){ //itera sobre todos os tamanhos de entrada
+                            entrada.escolha_tamanho(i);
+                            processar(entrada, algoritmo, save);
+                            }
                     }
-                cout << endl;
+                    cout << endl;
                 }else{
                     entrada.escolha_tipo_entrada(escolha_tipo);
                     for(int i = 1; i < 7 ; i++){//itera sobre todos os tamanhos de entrada
                     entrada.escolha_tamanho(i);
                     processar(entrada, algoritmo, save);
                     }
+                cout << endl << endl ;
                 }
-                cout << endl;
             }
+            system("pause");
 
 
         }else if(opcao == 2){
@@ -156,6 +158,10 @@ int main(){
             // system("pause");
         }else if(opcao == 3){
             save.visualizar_tempos();
+        }else if(opcao == 4){
+            cout << "Trabalho apresentado para obtencao de creditos na disciplina  SIN213 - Projeto de Algoritmos " << endl << "da Universidade Federal de Vicosa - Campus de Rio Paranaiba," << endl << "ministrada pelo Professor Pedro Moises de Souza." << endl;
+            cout << "Implementado por: Yan Guilherme Viana Leite - 5992" << endl;
+            system("pause");
         }else if(opcao == 0){
             exit(1);
         }else{

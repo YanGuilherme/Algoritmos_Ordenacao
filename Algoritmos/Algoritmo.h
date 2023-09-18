@@ -15,9 +15,12 @@ class Algoritmo{
         double duracao;
         virtual void ordenar(DadosEntrada *) = 0; // ;)
         ~Algoritmo(){}
-        string nome;
         double getTempoAtual();
         void exibir_duracao(DadosEntrada);
+        string getNome();
+    private:
+        string nome;
+
 };
 
 #endif

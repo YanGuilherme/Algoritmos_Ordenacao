@@ -14,3 +14,8 @@ double Algoritmo::getTempoAtual(){
 void Algoritmo::exibir_duracao(DadosEntrada entrada){
     printf("\nTempo gasto para vetor de tamanho %d: %lf segundos.\n\n",entrada.tamanho, duracao);
 }
+
+string Algoritmo::getNome()
+{
+    return this->nome;
+}
