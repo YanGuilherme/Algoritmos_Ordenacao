@@ -22,9 +22,9 @@ class Arquivo{
         void salvar_saida(string, DadosEntrada);
         void salvar_tempo(string, DadosEntrada, double);
         void criar_pasta(const char*);
-    private:
         void apagar_pasta_especifica();
         void visualizar_tempos();
+    private:
 };
 
 #endif
