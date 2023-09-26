@@ -195,9 +195,8 @@ void exibirConteudoArquivoTxt(const string& filePath) {
 
     string linha;
     while (getline(arquivo, linha)) {
-        cout << linha << endl << endl;
+        cout << linha << endl;
     }
-
     arquivo.close();
 }
 
@@ -228,6 +227,8 @@ void listarArquivosTxt(const string& dirPath) {
 void Arquivo::visualizar_tempos(){
     const char* rootPath = "Arquivos_IO";
     vector<string> diretorios;
+    string num;
+
     if (listarDiretoriosExistents(rootPath, diretorios)) {
         cout << "Diretorios disponiveis para visualizacao: " << endl;
         for (size_t i = 0; i < diretorios.size(); ++i) {
@@ -240,11 +241,13 @@ void Arquivo::visualizar_tempos(){
     if (escolha > 0 && escolha <= static_cast<int>(diretorios.size())) {
         string dirPath = string(rootPath) + "\\" + diretorios[escolha - 1];
         dirPath += "\\arquivos_tempo"; // Adiciona "arquivos_tempo" ao caminho
-        cout << "Diretorio: " << dirPath << endl;
+        cout << "Diretorio: " << dirPath << endl << endl;
         
         // Listar arquivos .txt dentro das subpastas
         listarArquivosTxt(dirPath + "\\crescente");
+        cout << endl;
         listarArquivosTxt(dirPath + "\\decrescente");
+        cout << endl;
         listarArquivosTxt(dirPath + "\\random");
         system("pause");
     }

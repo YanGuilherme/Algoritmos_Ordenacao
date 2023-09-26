@@ -2,6 +2,7 @@
 #define ARQUIVO_H
 
 #include "DadosEntrada.h"
+#include "Algoritmos/Algoritmo.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <chrono>
@@ -21,6 +22,7 @@ class Arquivo{
         void salvar_saida(string, DadosEntrada);
         void salvar_tempo(string, DadosEntrada, double);
         void criar_pasta(const char*);
+    private:
         void apagar_pasta_especifica();
         void visualizar_tempos();
 };

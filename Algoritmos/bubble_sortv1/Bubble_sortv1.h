@@ -13,6 +13,7 @@ class BubbleSortv1: public Algoritmo{
         BubbleSortv1();
         ~BubbleSortv1();
         void ordenar(DadosEntrada*);
+        
 };
 
 

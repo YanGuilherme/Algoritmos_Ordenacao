@@ -168,5 +168,9 @@ int main(){
             cout << "Entrada invalida.\n";
         }
     }
+    if (algoritmo != nullptr) {
+    delete algoritmo;  // Desaloca o objeto apontado por algoritmo
+    algoritmo = nullptr;  // Define o ponteiro para nullptr
+    }
     return 0;
 }
