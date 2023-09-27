@@ -35,7 +35,7 @@ void Arquivo::salvar_entrada(string nome_algorithm, DadosEntrada entrada){
         nome_pasta += ("entrada_random_" + numStr + ".txt");
 
     }
-    caminho_arquivo = nome_pasta.c_str();  
+    caminho_arquivo = nome_pasta.c_str();
     arquivo = fopen(caminho_arquivo, "w"); 
     if(arquivo == NULL){cout << "Nao foi possivel abrir o arquivo" << endl;exit(1);}
     sprintf(entrada_arquivo, "%d\n", entrada.tamanho);
@@ -186,7 +186,7 @@ void Arquivo::apagar_pasta_especifica(){
 
 }
 
-void exibirConteudoArquivoTxt(const string& filePath) {
+void exibirConteudoArquivoTxt(const string& filePath, string tipo_entrada) {
     ifstream arquivo(filePath);
 
     if (!arquivo.is_open()) {
@@ -200,23 +200,23 @@ void exibirConteudoArquivoTxt(const string& filePath) {
     arquivo.close();
 }
 
-void listarArquivosTxt(const string& dirPath) {
+void listarArquivosTxt(const string& dirPath, string tipo_entrada) {
     // Abre o diretório
     DIR* directory = opendir(dirPath.c_str());
     
     if (directory == nullptr) {
         return;
     }
- 
+    cout << "Tempo " + tipo_entrada << ":" << endl;
     struct dirent* entry;
     while ((entry = readdir(directory)) != nullptr) {
         string fileName = entry->d_name;
         
         // Verifica se o arquivo possui extensão .txt
         if (fileName.length() > 4 && fileName.substr(fileName.length() - 4) == ".txt") {
-            cout << fileName << ":" << endl;
+
             string filePath = dirPath + "\\" + fileName;
-            exibirConteudoArquivoTxt(filePath);
+            exibirConteudoArquivoTxt(filePath, tipo_entrada);
         }
     }
 
@@ -244,11 +244,11 @@ void Arquivo::visualizar_tempos(){
         cout << "Diretorio: " << dirPath << endl << endl;
         
         // Listar arquivos .txt dentro das subpastas
-        listarArquivosTxt(dirPath + "\\crescente");
+        listarArquivosTxt(dirPath + "\\crescente", "crescente");
         cout << endl;
-        listarArquivosTxt(dirPath + "\\decrescente");
+        listarArquivosTxt(dirPath + "\\decrescente", "decrescente");
         cout << endl;
-        listarArquivosTxt(dirPath + "\\random");
+        listarArquivosTxt(dirPath + "\\random", "random");
         system("pause");
     }
 

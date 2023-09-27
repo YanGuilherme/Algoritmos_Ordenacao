@@ -6,8 +6,7 @@ InsertionSort::InsertionSort():Algoritmo("insertion_sort"){}
 
 InsertionSort::~InsertionSort(){}
 
-void InsertionSort::ordenar(DadosEntrada *entrada)
-{
+void InsertionSort::ordenar(DadosEntrada *entrada){
     double inicio = getTempoAtual();
     int chave;
     int index;

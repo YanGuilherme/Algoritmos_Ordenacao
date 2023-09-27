@@ -20,16 +20,17 @@ enum TipoEntrada{
 
 class DadosEntrada{
     private:
+        string tipo;
     public:
+        string getTipo();
         int tamanho, *vector;
         TipoEntrada tipo_entrada;
         DadosEntrada();
-        DadosEntrada(int, TipoEntrada);
-        string tipo;
+        DadosEntrada(TipoEntrada, int);
         void make_vector();
         void exibe_vector();
         void escolha_tipo_entrada(int);
-        void escolha_tamanho(int);
+        void escolha_tamanho();
         void destroy_vector();
         int get_tamanho();
 };

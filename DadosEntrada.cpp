@@ -14,11 +14,20 @@ int calcularPotencia(int base, int expoente) {
 
     return resultado;
 }
+string DadosEntrada::getTipo(){
+    map<TipoEntrada, string> mapaTipoEntrada;
+    mapaTipoEntrada[CRESCENTE] = "Crescente";
+    mapaTipoEntrada[DECRESCENTE] = "Decrescente";
+    mapaTipoEntrada[RANDOM] = "Random";
+    return mapaTipoEntrada[tipo_entrada]; 
+}
 DadosEntrada::DadosEntrada(){
+    
 }
 
-DadosEntrada::DadosEntrada(int t, TipoEntrada name){
-    tipo_entrada = name;
+DadosEntrada::DadosEntrada(TipoEntrada tipoEntrada, int tamanho){
+    this->tipo_entrada = tipoEntrada;
+    this->tamanho = tamanho;
 }
 
 void DadosEntrada::make_vector(){
@@ -48,32 +57,6 @@ void DadosEntrada::exibe_vector(){
         printf("%d ", vector[i]);
     }
     printf("\n\n");
-}
-
-void DadosEntrada::escolha_tipo_entrada(int b){
-    switch (b){
-    case 1:
-        tipo_entrada = CRESCENTE;
-        tipo = "Crescente";
-        break;
-    case 2:
-        tipo_entrada = DECRESCENTE;
-        tipo = "Decrescente";
-        break;
-    case 3:
-        tipo_entrada = RANDOM;
-        tipo = "Random";
-        break;
-    default:
-        printf("Escolha invalida.\n");
-        break;
-    }
-    // system("clear");
-
-}
-
-void DadosEntrada::escolha_tamanho(int opcao){
-    this->tamanho = calcularPotencia(10,opcao);
 }
 
 void DadosEntrada::destroy_vector(){
