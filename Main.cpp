@@ -103,8 +103,8 @@ vector<int> selecionarTamanhos(){
         vetorDeTamanhos.push_back(100);
         vetorDeTamanhos.push_back(1000);
         vetorDeTamanhos.push_back(10000);
-        // vetorDeTamanhos.push_back(100000);
-        // vetorDeTamanhos.push_back(1000000);
+        vetorDeTamanhos.push_back(100000);
+        vetorDeTamanhos.push_back(1000000);
         break;
        
     default:
