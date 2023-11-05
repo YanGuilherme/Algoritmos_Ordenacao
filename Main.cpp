@@ -8,6 +8,8 @@
 #include "Algoritmos/shell_sort/Shell_sort.h"
 #include "Algoritmos/merge_sort/Merge_sort.h"
 #include "Algoritmos/quick_sort/Quick_sort.h"
+#include "Algoritmos/quick_sort_v1/Quick_Sort_v1.h"
+#include "Algoritmos/quick_sort_v2/Quick_Sort_v2.h"
 #include <vector>
 
 using namespace std;
@@ -23,7 +25,10 @@ vector<Algoritmo*> selecionarAlgoritimo(){
     cout << "5. Shell Sort" << endl;
     cout << "6. Merge Sort" << endl;
     cout << "7. Quick Sort" << endl;
-    cout << "8. Todos os algoritmos" << endl;
+    cout << "8. Quick Sort v1 (Pivo inicio)" << endl;
+    cout << "9. Quick Sort v2 (Pivo media)" << endl;
+
+    cout << "10. Todos os algoritmos" << endl;
     cout << "Digite: ";
     cin >> algoritmo;
     system("cls");
@@ -50,6 +55,13 @@ vector<Algoritmo*> selecionarAlgoritimo(){
         vetorDeAlgoritmos.push_back(new QuickSort);
         break;
     case 8:
+        vetorDeAlgoritmos.push_back(new QuickSortV1);
+        break;
+    case 9:
+        vetorDeAlgoritmos.push_back(new QuickSortV2);
+        break;
+
+    case 10:
         vetorDeAlgoritmos.push_back(new InsertionSort);
         vetorDeAlgoritmos.push_back(new BubbleSortv1);
         vetorDeAlgoritmos.push_back(new BubbleSortv2);
@@ -57,6 +69,10 @@ vector<Algoritmo*> selecionarAlgoritimo(){
         vetorDeAlgoritmos.push_back(new ShellSort);
         vetorDeAlgoritmos.push_back(new MergeSort);
         vetorDeAlgoritmos.push_back(new QuickSort);
+        vetorDeAlgoritmos.push_back(new QuickSortV1);
+        vetorDeAlgoritmos.push_back(new QuickSortV2);
+        break;
+
         
     default:
         cout << "Comando invalido" << endl;
