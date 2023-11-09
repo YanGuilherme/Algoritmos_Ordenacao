@@ -10,7 +10,7 @@
 
 class QuickSortV2: public Algoritmo{
     private:
-        long calcularMedia(int*,int,int);
+        double calcularMedia(int*,int,int);
         void troca(int *,int ,int) ;
         int particao(int *, int, int);
         void quick_sortv2(int*, int, int);

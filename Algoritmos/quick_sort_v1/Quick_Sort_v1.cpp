@@ -1,6 +1,7 @@
 #include "Quick_Sort_v1.h"
 #include <stack> 
 
+using namespace std;
 void QuickSortV1::troca(int* vector, int a, int b) {
     int temp = vector[a];
     vector[a] = vector[b];
@@ -30,19 +31,19 @@ int QuickSortV1::particao(int* vector, int p, int r) {
 }
 
 void QuickSortV1::quick_sortv1(int* vector, int p, int r) {
-    std::stack<std::pair<int, int>> stack;
-    stack.push(std::make_pair(p, r));
+    stack<pair<int, int>> stack;
+    stack.push(make_pair(p, r));
 
     while (!stack.empty()) {
-        std::pair<int, int> current = stack.top();
+        pair<int, int> current = stack.top();
         stack.pop();
         int p = current.first;
         int r = current.second;
 
         if (p < r) {
             int pivotIndex = particao(vector, p, r);
-            stack.push(std::make_pair(p, pivotIndex - 1));
-            stack.push(std::make_pair(pivotIndex + 1, r));
+            stack.push(make_pair(p, pivotIndex - 1));
+            stack.push(make_pair(pivotIndex + 1, r));
         }
     }
 }

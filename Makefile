@@ -13,7 +13,10 @@ SRC_FILES = Main.cpp  $(SRC_DIR)/merge_sort/Merge_sort.cpp \
             $(SRC_DIR)/bubble_sortv1/bubble_sortv1.cpp \
             $(SRC_DIR)/bubble_sortv2/bubble_sortv2.cpp \
 			$(SRC_DIR)/quick_sort_v1/Quick_Sort_v1.cpp \
-			$(SRC_DIR)/quick_sort_v2/Quick_Sort_v2.cpp
+			$(SRC_DIR)/quick_sort_v2/Quick_Sort_v2.cpp \
+            $(SRC_DIR)/quick_sort_v3/Quick_sort_v3.cpp \
+            $(SRC_DIR)/quick_sort_v4/Quick_sort_v4.cpp
+
 
 
 
