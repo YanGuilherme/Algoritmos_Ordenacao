@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include "../DadosEntrada.h"
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 
@@ -13,14 +15,14 @@ class Algoritmo{
     public:
         Algoritmo(string);
         double duracao;
-        virtual void ordenar(DadosEntrada *) = 0; // ;)
+        virtual void executar(DadosEntrada *) = 0; // ;)
         virtual ~Algoritmo() {}
-        double getTempoAtual();
+        static double getTempoAtual();
         void exibir_duracao(DadosEntrada);
         string getNome();
     private:
         string nome;
-
+        
 };
 
 #endif

@@ -1,23 +1,12 @@
 CXX = g++
-CXXFLAGS = -Wall -g
+CXXFLAGS = -Wall -Wextra -std=c++11 -O3 -Wl,--stack,67108864
 LIBS = 
 
 SRC_DIR = Algoritmos
-SRC_FILES = Main.cpp  $(SRC_DIR)/merge_sort/Merge_sort.cpp \
-            $(SRC_DIR)/quick_sort/Quick_sort.cpp \
-            $(SRC_DIR)/insertion_sort/Insertion_sort.cpp \
+SRC_FILES = Main.cpp  $(SRC_DIR)/heap_sort/Heap_min.cpp \
+			$(SRC_DIR)/heap_sort/Heap_sort_min.cpp \
             DadosEntrada.cpp Arquivo.cpp \
-            $(SRC_DIR)/shell_sort/Shell_sort.cpp \
-            $(SRC_DIR)/selection_sort/Selection_sort.cpp \
             $(SRC_DIR)/Algoritmo.cpp \
-            $(SRC_DIR)/bubble_sortv1/bubble_sortv1.cpp \
-            $(SRC_DIR)/bubble_sortv2/bubble_sortv2.cpp \
-			$(SRC_DIR)/quick_sort_v1/Quick_Sort_v1.cpp \
-			$(SRC_DIR)/quick_sort_v2/Quick_Sort_v2.cpp \
-            $(SRC_DIR)/quick_sort_v3/Quick_sort_v3.cpp \
-            $(SRC_DIR)/quick_sort_v4/Quick_sort_v4.cpp
-
-
 
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)

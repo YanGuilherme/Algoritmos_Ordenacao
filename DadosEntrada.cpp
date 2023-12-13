@@ -30,28 +30,26 @@ DadosEntrada::DadosEntrada(TipoEntrada tipoEntrada, int tamanho){
     this->tamanho = tamanho;
 }
 
-void DadosEntrada::make_vector(){
+void DadosEntrada::make_vector() {
     vector = (int*)malloc(tamanho * sizeof(int));
 
-    if(tipo_entrada == CRESCENTE){
-            for(int i = 0; i < tamanho; i++){
-                vector[i] = i+1;
+    if (tipo_entrada == CRESCENTE) {
+        for (int i = 0; i < tamanho; i++) {
+            vector[i] = i + 1;
         }
-    }else if(tipo_entrada == DECRESCENTE){
-            for(int i = 0; i < tamanho; i++){
-                vector[i] = tamanho - i;
+    } else if (tipo_entrada == DECRESCENTE) {
+        for (int i = 0; i < tamanho; i++) {
+            vector[i] = tamanho - i;
         }
-    }else if(tipo_entrada == RANDOM){
-        random_device rd;
-        mt19937 gen(rd());
-        uniform_int_distribution<int> dis(1, 100000);
+    } else if (tipo_entrada == RANDOM) {
+        // Inicializa a semente para a função rand() usando o tempo atual
+        srand(time(0));
 
-       for(int i = 0; i < tamanho; i++){
-           vector[i] = dis(gen);
+        for (int i = 0; i < tamanho; i++) {
+            vector[i] = rand() % 100000 + 1;
         }
     }
 }
-
 void DadosEntrada::exibe_vector(){
     for(int i = 0; i < tamanho; i++){
         printf("%d ", vector[i]);

@@ -94,11 +94,12 @@ void Arquivo::salvar_saida(string nome_algorithm, DadosEntrada entrada){ //to do
 
 void Arquivo::salvar_tempo(string nome_algorithm, DadosEntrada entrada, double duracao){
     FILE *arq;
-    char tempos_execucao[50];
+    char tempos_execucao[100];
     string nome_pasta;
     const char* path_pasta;
     const char* caminho_arquivo;
     string tamanho_Str;
+
 
     if(entrada.tipo_entrada == CRESCENTE){
         nome_pasta = DIRETORIO_RAIZ + (nome_algorithm + "/arquivos_tempo/crescente/");
@@ -118,13 +119,15 @@ void Arquivo::salvar_tempo(string nome_algorithm, DadosEntrada entrada, double d
         criar_pasta(path_pasta); 
         tamanho_Str = to_string(entrada.tamanho);
         nome_pasta += ("tempo_random_" + tamanho_Str + ".txt");
+
     }
 
     caminho_arquivo = nome_pasta.c_str();
     arq = fopen(caminho_arquivo, "a");
-    sprintf(tempos_execucao, "Tempo: %lf Tamanho: %d\n", duracao, entrada.tamanho);
+    sprintf(tempos_execucao, "Tempo: %lf Tamanho: %d\n", abs(duracao), entrada.tamanho);
     fprintf(arq,"%s", tempos_execucao);
     fclose(arq);
+
 }
 
 bool existe_diretorio(const char* path){
@@ -186,7 +189,7 @@ void Arquivo::apagar_pasta_especifica(){
 
 }
 
-void exibirConteudoArquivoTxt(const string& filePath, string tipo_entrada) {
+void exibirConteudoArquivoTxt(const string& filePath) {
     ifstream arquivo(filePath);
 
     if (!arquivo.is_open()) {
@@ -216,7 +219,7 @@ void listarArquivosTxt(const string& dirPath, string tipo_entrada) {
         if (fileName.length() > 4 && fileName.substr(fileName.length() - 4) == ".txt") {
 
             string filePath = dirPath + "\\" + fileName;
-            exibirConteudoArquivoTxt(filePath, tipo_entrada);
+            exibirConteudoArquivoTxt(filePath);
         }
     }
 

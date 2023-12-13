@@ -18,12 +18,12 @@
 using namespace std;
 class Arquivo{
     public:
-        void salvar_entrada(string, DadosEntrada);
-        void salvar_saida(string, DadosEntrada);
-        void salvar_tempo(string, DadosEntrada, double);
-        void criar_pasta(const char*);
-        void apagar_pasta_especifica();
-        void visualizar_tempos();
+        static void salvar_entrada(string, DadosEntrada);
+        static void salvar_saida(string, DadosEntrada);
+        static void salvar_tempo(string, DadosEntrada, double);
+        static void criar_pasta(const char*);
+        static void apagar_pasta_especifica();
+        static void visualizar_tempos();
     private:
 };
 

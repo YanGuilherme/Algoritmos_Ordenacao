@@ -8,6 +8,9 @@
 #include <math.h>
 #include <iostream>
 #include <map>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
