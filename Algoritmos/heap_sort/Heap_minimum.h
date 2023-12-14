@@ -4,11 +4,13 @@
 #include "../../DadosEntrada.h"
 #include "../Algoritmo.h"
 
-class Heap_Minimum: public HeapMin, public Algoritmo{
+class HeapMin;
+class HeapMinimum: public Algoritmo, public HeapMin{
     public:
-        static void exibir_heap();
-        static void exibir_min();
-        void executar();
+        HeapMinimum();
+        ~HeapMinimum();
+        void build_min_heap(DadosEntrada*);
+        void executar(DadosEntrada*);
     private:
 
 };

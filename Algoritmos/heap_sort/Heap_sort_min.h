@@ -6,10 +6,11 @@
 
 class HeapMin;
 
-class HeapSortMin:public Algoritmo{
+class HeapSortMin:public Algoritmo, public HeapMin{
     private:
         void heapsort(DadosEntrada*);
     public:
+        void build_min_heap(DadosEntrada*);
         HeapSortMin();
         ~HeapSortMin();
         void executar(DadosEntrada *);

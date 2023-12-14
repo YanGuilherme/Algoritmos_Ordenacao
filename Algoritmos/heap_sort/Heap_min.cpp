@@ -4,13 +4,7 @@ HeapMin::HeapMin(){}
 
 HeapMin::~HeapMin(){}
 
-void HeapMin::build_min_heap(DadosEntrada* dados) {
-    int heap_size = dados->get_tamanho();
-    
-    for (int i = heap_size / 2 - 1; i >= 0; --i) {
-        HeapMin::min_heapify(dados, i, heap_size);
-    }
-}
+
 
 void HeapMin::min_heapify(DadosEntrada* dados, int i, int heap_size) {
     int left = 2 * i + 1;
@@ -29,6 +23,14 @@ void HeapMin::min_heapify(DadosEntrada* dados, int i, int heap_size) {
         swap(dados->vector[i], dados->vector[smallest]);
         HeapMin::min_heapify(dados, smallest, heap_size);
     }
+}
+
+
+void HeapMin::exibir_heap(DadosEntrada* dados) {
+    for (int i = 0; i < dados->get_tamanho(); i++) {
+        cout << dados->vector[i] << " ";
+    }
+    cout << endl;
 }
 
 
