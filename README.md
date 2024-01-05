@@ -1,4 +1,4 @@
-# projeto_pa_windows
+# Projeto de Algoritmos de Ordenação (Windows)
 Como rodar:
 - Execute o arquivo Main.exe
   ou
